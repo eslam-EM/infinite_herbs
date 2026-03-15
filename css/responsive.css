@@ -1,0 +1,124 @@
+/* =====================================
+   Responsive Design (Clean & Fixed)
+   ===================================== */
+
+
+/* Tablets */
+
+@media (max-width: 1024px) {
+    .slide-title {
+        font-size: 2.5rem;
+    }
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Mobile & Small Tablets */
+
+@media (max-width: 768px) {
+    /* NAVBAR */
+    .navbar .container {
+        flex-wrap: nowrap;
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        flex-direction: column;
+        gap: 20px;
+        padding: 2rem;
+        box-shadow: var(--shadow-lg);
+        z-index: 999;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    /* HERO */
+    .slide-title {
+        font-size: 2rem;
+    }
+    .slide-desc {
+        font-size: 1rem;
+    }
+    /* SECTIONS */
+    .section-title {
+        font-size: 2rem;
+    }
+    /* PRODUCT TABS */
+    .product-tabs {
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .tab-btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+    /* PRODUCTS GRID */
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    /* MODAL */
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* Small Mobile */
+
+@media (max-width: 480px) {
+    /* LOGO */
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    /* HERO */
+    .slide-title {
+        font-size: 1.5rem;
+    }
+    .btn-hero {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .slider-controls {
+        bottom: 30px;
+    }
+    .prev-btn,
+    .next-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+    /* SECTIONS */
+    .section-title {
+        font-size: 1.8rem;
+    }
+    /* PRODUCTS GRID */
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    /* MODAL */
+    .modal-body {
+        padding: 1.5rem;
+    }
+}
+
+
+/* Medium Screens */
+
+@media (max-width: 992px) and (min-width: 769px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+    }
+}

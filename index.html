@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Herbs | Premium Herbs & Spices Export</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Loading Animation -->
+    <div class="loading-overlay">
+        <div class="loader">
+            <div class="leaf">🌿</div>
+            <div class="leaf">🌿</div>
+            <div class="leaf">🌿</div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+
+            <div class="logo">
+                <img src="images/logo.png" alt="Infinite Herbs Logo" class="logo-img">
+                <span class="logo-text">Infinite Herbs</span>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-link active">
+                    <i class="fas fa-home"></i> Home
+                </a>
+                <a href="about.html" class="nav-link">
+                    <i class="fas fa-info-circle"></i> About
+                </a>
+                <a href="products.html" class="nav-link">
+                    <i class="fas fa-box-open"></i> Products
+                </a>
+                <a href="contact.html" class="nav-link">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+                <a href="contact.html" class="btn-contact">
+                    <i class="fas fa-paper-plane"></i> Contact Us
+                </a>
+            </div>
+
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-slider">
+        <div class="slider-container">
+
+            <div class="slide active">
+                <div class="slide-bg" style="background-image: url('images/hero1.jpg');"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">Premium Herbs & Spices</h1>
+                    <p class="slide-desc">Export quality herbs from Egypt to the world</p>
+                    <a href="products.html" class="btn-hero">
+                        <i class="fas fa-shopping-bag"></i> Explore Products
+                    </a>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-bg" style="background-image: url('images/hero2.jpg');"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">100% Natural Products</h1>
+                    <p class="slide-desc">Highest quality standards for global markets</p>
+                    <a href="about.html" class="btn-hero">
+                        <i class="fas fa-certificate"></i> Our Standards
+                    </a>
+                </div>
+            </div>
+
+            <div class="slide">
+                <div class="slide-bg" style="background-image: url('images/hero3.jpg');"></div>
+                <div class="slide-overlay"></div>
+                <div class="slide-content">
+                    <h1 class="slide-title">Global Export Solutions</h1>
+                    <p class="slide-desc">Reliable shipping and packaging worldwide</p>
+                    <a href="contact.html" class="btn-hero">
+                        <i class="fas fa-shipping-fast"></i> Get Quote
+                    </a>
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                <div class="slider-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section id="products" class="featured-products">
+        <div class="container">
+
+            <div class="section-header">
+                <h2 class="section-title">Featured Products</h2>
+                <p class="section-subtitle">
+                    Premium quality herbs, seeds, and spices for global markets
+                </p>
+            </div>
+
+            <div class="product-tabs">
+                <button class="tab-btn active" data-category="all">
+                    <i class="fas fa-th"></i> All Products
+                </button>
+                <button class="tab-btn" data-category="herbs">
+                    <i class="fas fa-leaf"></i> Herbs
+                </button>
+                <button class="tab-btn" data-category="seeds">
+                    <i class="fas fa-seedling"></i> Seeds
+                </button>
+                <button class="tab-btn" data-category="spices">
+                    <i class="fas fa-pepper-hot"></i> Spices
+                </button>
+            </div>
+
+            <div class="products-grid">
+                <!-- Products loaded by JS -->
+            </div>
+
+            <div class="text-center">
+                <a href="products.html" class="btn-outline">
+                    View All Products <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+    
+    <!-- عرض تفاصيل المنتج -->
+    <div class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalCloseBtn" onclick="closeModal()">
+                <i class="fas fa-times"></i> Close
+            </button>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <!-- <div class="logo-icon">🌿</div> -->
+                        <img src="images/logo.png" class="logo-img" alt="Infinite Herbs Logo">
+                        <span class="logo-text">Infinity Herbs</span>
+                    </div>
+                    <p>Premium herbs and spices export company from Egypt to global markets.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="products.html?category=herbs">Herbs</a></li>
+                        <li><a href="products.html?category=seeds">Seeds</a></li>
+                        <li><a href="products.html?category=spices">Spices</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> info@infinityherbs.com</li>
+                        <li><i class="fas fa-phone"></i> +20 100 123 4567</li>
+                        <li><i class="fas fa-whatsapp"></i> +20 100 987 6543</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Fayoum, Egypt</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Infinity Herbs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+
+
+    
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/products-data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        window.addEventListener('load', () => {
+            const loader = document.querySelector('.loading-overlay');
+            loader.style.opacity = '0';
+            setTimeout(() => loader.style.display = 'none', 500);
+        });
+    </script>
+
+</body>
+
+</html>

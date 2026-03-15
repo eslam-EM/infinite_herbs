@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Infinite Herbs</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Navbar (انسخها من الصفحات الأخرى) -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">🌿</div>
+                <span class="logo-text">Infinite Herbs</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="products.html" class="nav-link active">Products</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="contact.html" class="btn-contact">Contact Us</a>
+            </div>
+            <button class="menu-toggle"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-page">
+        <div class="container">
+            <div class="product-detail-container" id="productDetailContainer">
+                <!-- المحتوى سيتحمّل هنا بواسطة JavaScript -->
+                <div style="text-align: center; padding: 100px;">
+                    <i class="fas fa-spinner fa-spin fa-3x" style="color: var(--primary-color);"></i>
+                    <p style="margin-top: 20px;">Loading product details...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (انسخها من الصفحات الأخرى) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-icon">🌿</div>
+                        <span class="logo-text">Infinite Herbs</span>
+                    </div>
+                    <p>Premium herbs and spices export company from Egypt to global markets.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="products.html">Products</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="products.html?category=herbs">Herbs</a></li>
+                        <li><a href="products.html?category=seeds">Seeds</a></li>
+                        <li><a href="products.html?category=spices">Spices</a></li>
+                        <li><a href="products.html">All Products</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-envelope"></i> eslamalhsawy@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +20 100 123 4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Fayoum, Egypt</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Infinite Herbs. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/products-data.js"></script>
+    <script>
+        // تحميل بيانات المنتج عند فتح الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            // الحصول على ID المنتج من URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = parseInt(urlParams.get('id'));
+            
+            if (!productId) {
+                window.location.href = 'products.html';
+                return;
+            }
+            
+            const product = productsData.find(p => p.id === productId);
+            
+            if (!product) {
+                window.location.href = 'products.html';
+                return;
+            }
+            
+            displayProductDetail(product);
+        });
+        
+        function displayProductDetail(product) {
+            const container = document.getElementById('productDetailContainer');
+            
+            // استخدام اللغة الإنجليزية افتراضياً
+            const name = product.name_en;
+            const desc = product.description_en;
+            const fullDesc = product.fullDescription_en || desc;
+            const healthBenefits = product.healthBenefits_en || 'Premium quality product with numerous health benefits.';
+            const howToUse = product.howToUse_en || 'Suitable for culinary and medicinal applications.';
+            
+            container.innerHTML = `
+                <div class="product-detail-grid">
+                    <div class="product-detail-image">
+                        <img src="${product.image}" alt="${name}" onerror="this.src='images/placeholder.jpg'">
+                    </div>
+                    
+                    <div class="product-detail-content">
+                        <h1 class="product-detail-title">${name}</h1>
+                        <span class="product-detail-category">${product.category.toUpperCase()}</span>
+                        
+                        <div class="product-detail-section">
+                            <h3><i class="fas fa-info-circle"></i> About this Product</h3>
+                            <p>${fullDesc}</p>
+                        </div>
+                        
+
+                        <div class="product-detail-meta">
+                            <div class="meta-item">
+                                <span class="meta-label">Origin:</span>
+                                <span class="meta-value">${product.origin}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Quality:</span>
+                                <span class="meta-value">${product.quality}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Packaging:</span>
+                                <span class="meta-value">${product.packaging}</span>
+                            </div>
+                            <div class="meta-item">
+                                <span class="meta-label">Availability:</span>
+                                <span class="meta-value">${product.availability}</span>
+                            </div>
+                        </div>
+                        
+                        ${product.wikipedia ? `
+                        <a href="${product.wikipedia}" target="_blank" class="wikipedia-btn">
+                            <i class="fab fa-wikipedia-w"></i> Learn More on Wikipedia
+                        </a>
+                        ` : ''}
+                        
+                        <div class="product-detail-actions">
+                            <a href="products.html" class="back-btn">
+                                <i class="fas fa-arrow-left"></i> Back to Products
+                            </a>
+                            
+
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function inquireAboutProduct(productId) {
+            const product = productsData.find(p => p.id === productId);
+            if (!product) return;
+            
+            const productName = product.name_en;
+            const subject = encodeURIComponent(`Inquiry about ${productName}`);
+            const body = encodeURIComponent(`I'm interested in learning more about ${productName}. Please provide me with more information including pricing and availability.`);
+            
+            window.location.href = `mailto:eslamalhsawy@gmail.com?subject=${subject}&body=${body}`;
+            
+            alert('Your email client will open to send your inquiry.');
+        }
+        // أضف هذا الكود في نهاية product-detail.html قبل إغلاق </body>
+        
+    // Mobile Menu Toggle for product-detail.html
+    document.addEventListener('DOMContentLoaded', function() {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (menuToggle && navLinks) {
+            console.log('Menu toggle initialized in product-detail.html');
+            
+            menuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+            
+            // Close menu when clicking on a link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                });
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.navbar')) {
+                    navLinks.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                }
+            });
+        } else {
+            console.log('Menu toggle or nav links not found in product-detail.html');
+        }
+    });
+    </script>
+</body>
+
+</html>
